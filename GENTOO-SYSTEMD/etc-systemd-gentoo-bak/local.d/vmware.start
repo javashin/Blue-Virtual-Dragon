@@ -1,0 +1,3 @@
+#!/bin/bash
+exec /bin/systemctl start vmware-vmci.service vmware-vmmon.service vmware-vmnet.service vmware-vmsock.service vmware-usb.service
+

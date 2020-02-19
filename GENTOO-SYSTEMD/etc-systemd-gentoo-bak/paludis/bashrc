@@ -1,0 +1,7 @@
+# bashrc
+# This file created by portage2paludis.bash
+CHOST="x86_64-pc-linux-gnu"
+CFLAGS="-O3 -march=native -pipe"
+CXXFLAGS="${CFLAGS}"
+LDFLAGS="-Wl,-O2 -Wl,--as-needed,-z,now -Wl,--hash-style=gnu"
+MAKEOPTS="-j3"

@@ -1,0 +1,8 @@
+x11-apps/fusion-icon python_single_target_python3_6 -python_single_target_python2_7
+x11-misc/ccsm python_single_target_python3_6 -python_single_target_python2_7
+dev-python/compizconfig-python  python_single_target_python3_6 -python_single_target_python2_7
+x11-misc/simple-ccsm python_single_target_python3_6 -python_single_target_python2_7
+x11-wm/compiz-meta ccsm emerald fusionicon boxmenu -debugutils -full manager simpleccsm
+x11-plugins/compiz-plugins-meta community compicc experimental extra extra-snowflake-textures
+x11-wm/compiz cairo dbus fuse gtk gtk3 svg gsettings inotify marco mate
+

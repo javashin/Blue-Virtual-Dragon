@@ -1,0 +1,150 @@
+x11-misc/compton python_targets_python3_6
+=net-p2p/deluge-2.0.3-r1 python_single_target_python2_7 python_targets_python2_7 -python_targets_python3_6 -python_single_target_python3_6
+app-admin/syslog-ng python_single_target_python3_6 python_targets_python3_6
+
+
+#*/* python_single_target_python3_6 python_targets_python3_6
+app-text/asciidoc python_single_target_python2_7 python_targets_python2_7
+net-analyzer/rrdtool python_single_target_python3_6 python_targets_python3_6
+dev-lang/python pgo threads bluetooth
+=dev-lang/python-3.7.2::gentoo gdbm ipv6 ncurses readline ssl xml -build -examples -hardened -libressl sqlite -test -tk -wininst threads
+
+
+#gnome-base/gnome-shell python_single_target_python3_6 -python_single_target_python2_7 -python_single_target_python3_5
+app-portage/unsymlink-lib python_single_target_python3_6
+
+#gnome-extra/chrome-gnome-shell python_single_target_python3_6
+
+mate-extra/mate-tweak python_targets_python3_6  -python_targets_python3_7
+x11-terms/guake -python_single_target_python3_5 python_single_target_python3_6
+
+
+
+#net-news/liferea python_single_target_python3_6 -python_single_target_python3_7
+
+
+
+
+media-sound/soundconverter -python_single_target_python3_5 python_single_target_python3_6
+
+
+#gnome-base/gnome-shell -python_single_target_python3_5 -python_single_target_python3_6 python_single_target_python3_7
+
+
+
+
+dev-libs/libpeas::gnome-next python_single_target_python3_7 -python_single_target_python3_6 -python_targets_python3_6
+
+gnome-base/gnome-shell python_single_target_python3_6 python_targets_python3_6 -python_single_target_python3_7
+
+
+
+
+dev-python/zstandard -python_targets_python3_6 python_targets_python2_7 -python_targets_python3_7
+app-office/libreoffice-bin python_single_target_python3_6 python_targets_python3_6
+app-emulation/playonlinux python_single_target_python2_7 python_targets_python2_7
+media-gfx/gimp python_single_target_python2_7 python_targets_python2_7
+dev-libs/libnatspec python_single_target_python2_7 python_targets_python2_7 
+media-libs/libcaca python_targets_python2_7 python_single_target_python2_7
+dev-util/boost-build python_single_target_python2_7 python_targets_python2_7
+app-office/dia python_single_target_python2_7 python_targets_python2_7
+app-editors/pluma python_single_target_python2_7 python_targets_python2_7
+ 
+media-sound/lash python_single_target_python2_7 python_targets_python2_7
+dev-libs/keybinder python_single_target_python2_7 python_targets_python2_7
+x11-apps/compiz-boxmenu python_single_target_python2_7 python_targets_python2_7
+media-libs/lv2 python_single_target_python3_6 python_targets_python3_6 -python_single_target_python3_7
+dev-vcs/mercurial python_targets_python3_8
+
+
+# required by dev-vcs/mercurial-5.2.2::pg_overlay
+# required by app-portage/layman-2.4.2-r2::gentoo[mercurial]
+# required by @selected
+# required by @world (argument)
+>=dev-python/zstandard-0.13.0 python_targets_python3_8
+# required by dev-python/zstandard-0.13.0::gentoo
+# required by dev-vcs/mercurial-5.2.2::pg_overlay
+# required by app-portage/layman-2.4.2-r2::gentoo[mercurial]
+# required by @selected
+# required by @world (argument)
+>=dev-python/setuptools-44.0.0 python_targets_python3_8
+# required by dev-python/zstandard-0.13.0::gentoo
+# required by dev-vcs/mercurial-5.2.2::pg_overlay
+# required by app-portage/layman-2.4.2-r2::gentoo[mercurial]
+# required by @selected
+# required by @world (argument)
+>=dev-python/cffi-1.13.2 python_targets_python3_8
+
+
+#The following USE changes are necessary to proceed:
+# (see "package.use" in the portage(5) man page for more details)
+# required by dev-python/setuptools-44.0.0::gentoo
+# required by dev-python/ipaddress-1.0.23::gentoo
+# required by virtual/python-ipaddress-1.0-r1::gentoo[python_targets_python2_7]
+# required by dev-python/cryptography-2.8-r1::gentoo
+# required by dev-python/urllib3-1.25.7::gentoo
+# required by dev-python/requests-2.22.0::gentoo
+# required by app-emulation/virt-manager-2.2.1::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-python/certifi-2019.11.28 python_targets_python3_8
+# required by dev-python/cffi-1.13.2::gentoo
+# required by virtual/python-cffi-0::gentoo[python_targets_python2_7,python_targets_python3_7,-python_targets_python3_8,python_targets_python3_6]
+# required by dev-python/pycryptodome-3.9.4::gentoo
+# required by net-misc/youtube-dl-2020.01.15::gentoo
+# required by dev-python/pafy-0.5.4::gentoo
+# required by media-sound/mps-youtube-0.2.8::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-python/pycparser-2.19-r1 python_targets_python3_8
+# required by dev-python/pycparser-2.19-r1::gentoo
+# required by dev-python/cffi-1.13.2::gentoo
+# required by virtual/python-cffi-0::gentoo[python_targets_python2_7,python_targets_python3_7,-python_targets_python3_8,python_targets_python3_6]
+# required by dev-python/pycryptodome-3.9.4::gentoo
+# required by net-misc/youtube-dl-2020.01.15::gentoo
+# required by dev-python/pafy-0.5.4::gentoo
+# required by media-sound/mps-youtube-0.2.8::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-python/ply-3.11 python_targets_python3_8
+
+
+sys-devel/clang -python_single_target_python2_7 -python_single_target_python3_7 python_single_target_python3_8
+=app-accessibility/caribou-0.4.21 -python_targets_python2_7
+
+
+
+#dev-python/pyxattr -python_single_target_python2_7 python_single_target_python3_8
+#sys-apps/portage -python_targets_python2_7
+#app-portage/gemato -python_targets_python2_7
+#app-portage/repoman -python_targets_python2_7
+#app-portage/gentoolkit -python_targets_python2_7
+#app-portage/layman -python_targets_python2_7
+
+#dev-java/java-config -python_targets_python2_7
+#dev-python/* -python_targets_python2_7 python_single_target_python3_8
+dev-util/gdbus-codegen python_single_target_python3_8 -python_single_target_python3_7
+dev-libs/gobject-introspection python_single_target_python3_8 -python_single_target_python3_7
+dev-util/glib-utils python_single_target_python3_8 -python_single_target_python3_7
+net-p2p/deluge python_single_target_python3_7
+app-emulation/virt-manager python_single_target_python3_7
+sys-devel/gdb python_single_target_python3_7
+dev-util/gtk-doc python_single_target_python3_7
+sys-apps/usbutils python_single_target_python3_7
+net-fs/samba python_single_target_python3_7
+media-libs/alsa-lib python_single_target_python3_7
+
+sys-fs/btrfs-progs python_single_target_python3_7
+net-firewall/firewalld python_single_target_python3_7 
+media-gfx/fontforge python_single_target_python3_7
+
+media-sound/jack-audio-connection-kit python_single_target_python3_7
+net-mail/mailutils python_single_target_python3_7
+#dev-libs/gom -python_targets_python3_6
+net-libs/telepathy-glib python_single_target_python3_8
+###igloo-l440 ~ # 
+net-fs/samba -python_single_target_python3_7 python_single_target_python3_8
+sys-libs/tevent -python_single_target_python3_7 python_single_target_python3_8
+#igloo-l440 ~ # 
+sys-libs/talloc -python_single_target_python3_7 python_single_target_python3_8
+sys-libs/tdb -python_single_target_python3_7 python_single_target_python3_8

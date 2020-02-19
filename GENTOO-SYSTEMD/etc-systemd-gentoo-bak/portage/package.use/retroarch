@@ -1,0 +1,6 @@
+#games-emulation/libretro-meta mgba citra -redream -reicast parallel-n64 -snes9x -snes9x2002 -snes9x2010 -tgbdual vba-next vbam yabause -fbalpha -mame2003 -2048 -4do beetle-psx -bnes -bsnes -desmume -dolphin -fba -fceu-next -gambatte -genplus -handy -imame4all -mame mednafen-gba -mednafen-ngp -mednafen-pce-fast mednafen-psx mednafen-snes -mednafen-vb -mednafen-wswan -meteor mupen64plus -nxengine pcsx-rearmed -mednafen-supergrafx -picodrive -pocketsnes ppsspp -nestopia -prboom -prosystem -scummvm -stella -tyrquake
+#games-emulation/retroarch -cheevos -sdl python_single_target_python3_6 -gles2 lakka v4l2 
+#games-emulation/*libretro* -gles2
+#games-emulation/reicast-libretro naomi
+#games-emulation/mgba-libretro imagemagick
+

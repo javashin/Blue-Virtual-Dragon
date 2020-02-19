@@ -1,0 +1,58 @@
+*/* gpm gnome-keyring introspection pdf mp4 mad ldap a52 dts mpeg -elogind fbcon dga -openrc systemd abi_x86_32 -consolekit cleartype_hinting
+dev-qt/* -gles2 qml
+dev-python/PyQt5 -gles2 bluetooth dbus network opengl sensors ssl svg -debug declarative -designer -examples gui -help -location multimedia -networkauth -positioning -printsupport -serialport -sql -testlib -webchannel -webkit -websockets widgets -x11extras -xmlpatterns
+
+app-crypt/gcr vala
+x11-libs/gtk+ colord
+net-misc/ofono upower
+dev-libs/libpcre pcre16
+media-libs/harfbuzz icu
+media-libs/libvpx svc
+app-arch/unzip natspec
+app-crypt/libsecret vala
+dev-qt/qtcore icu
+net-nds/openldap minimal
+media-libs/libsdl xv
+#GNOME
+#gnome-base/gnome-shell python_single_target_python3_6
+#gnome-extra/gnome-tweaks python_single_target_python3_6
+
+#*/gnome-* python_single_target_python3_6
+#dev-libs/apr-util ldap
+#gnome-extra/chrome-gnome-shell python_single_target_python3_6
+gui-wm/sway X man swaybar swaybg swayidle swaylock swaymsg swaynag systemd tray wallpapers
+gui-libs/wlroots X filecaps systemd icccm -rootston x11-backend
+gui-apps/waybar network pulseaudio udev -libcxx -mpd tray
+
+xfce-base/garcon -gtk2
+xfce-base/exo -gtk2
+xfce-base/libxfce4ui -gtk2 
+xfce-base/xfce4-panel -gtk2
+xfce-extra/xfce4-pulseaudio-plugin libnotify -debug keybinder wnck
+app-admin/conky X curl hddtemp iconv ipv6 ncurses portmon pulseaudio systemd truetype wifi -apcupsd cmus -eve -ical imlib iostats -irc lua-cairo lua-imlib lua-rsvg -math moc -mpd -mysql nano-syntax -nvidia -rss thinkpad -vim-syntax weather-metar -webserver -xmms2
+media-video/mplayer X a52 alsa bs2b cdio dga dts dvd dvdnav enca encode fbcon gif iconv ipv6 jpeg ladspa libass libcaca lzo mad mng mp3 network openal opengl osdmenu png pulseaudio rar sdl shm theora truetype unicode v4l vdpau vorbis x264 xinerama xscreensaver xv xvid -aalib -bidi -bl -bluray -cddb -cdparanoia -cpudetection -debug -doc -dv -dvb faac faad -ftp -ggi -gsm -jack joystick -libmpeg2 -lirc -live -md5sum -nas -nut -pnm -pvr -radio -rtc -rtmp -samba -speex -tga -toolame -tremor -twolame -vcd -yuv4mpeg -zoran 
+sys-fs/libostree curl gnutls http2 introspection libmount man openssl soup systemd -avahi -doc
+x11-themes/arc-theme gtk2 gtk3 -cinnamon -gnome-shell mate xfce
+media-libs/libprojectm gles2 sdl qt5
+gnome-extra/synapse nls -indicator plugins
+
+x11-misc/notification-daemon gnome
+virtual/notification-daemon gnome
+dev-libs/folks -tracker
+>=x11-libs/gtksourceview-3.24.7 vala
+>=net-libs/gnome-online-accounts-3.26.2 vala
+
+sys-apps/bubblewrap suid
+net-wireless/bluez user-session
+media-gfx/shotwell udev -opencv
+gnome-base/gnome-extra-apps -games
+dev-qt/qtquickcontrols2 widgets
+media-libs/libchamplain vala
+#gnome-base/gnome-core-libs -python
+net-misc/networkmanager audit bluetooth connection-sharing dhcpcd gnutls iwd json vala  modemmanager -resolvconf
+media-gfx/inkscape  python_single_target_python3_7 cdr dbus exif jpeg lcms nls openmp spell svg2 wpg dia -graphicsmagick visio imagemagick inkjar -jemalloc postscript 
+#python_single_target_python3_8 -python_single_target_python3_7
+
+app-text/gspell -vala
+
+

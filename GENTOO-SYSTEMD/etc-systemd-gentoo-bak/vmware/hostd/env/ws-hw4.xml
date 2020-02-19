@@ -1,0 +1,11 @@
+<ConfigRoot>
+  <ConfigurationDescriptor>
+    <_type>vim.vm.ConfigOptionDescriptor</_type>
+    <createSupported>true</createSupported>
+    <defaultConfigOption>false</defaultConfigOption>
+    <description>Hardware version 4 virtual machine</description>
+    <key>vmx-04</key>
+    <runSupported>true</runSupported>
+    <upgradeSupported>true</upgradeSupported>
+  </ConfigurationDescriptor>
+</ConfigRoot>

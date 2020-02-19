@@ -1,0 +1,8 @@
+# Configuration file for eselect
+# This file has been automatically generated.
+symlink_directories=""
+applications=""
+binaries=""
+include=""
+libraries=""
+manuals=""

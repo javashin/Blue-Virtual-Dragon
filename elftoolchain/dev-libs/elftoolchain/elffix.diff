@@ -1,0 +1,10 @@
+--- /usr/include/elfdefinitions.h	2019-10-01 21:41:34.142680037 +0000
++++ /var/tmp/portage/dev-libs/elftoolchain-9999/work/elftoolchain-9999/common/elfdefinitions.h	2019-10-02 20:06:28.981354297 +0000
+@@ -39,7 +39,6 @@
+ 
+ #ifndef _ELFDEFINITIONS_H_
+ #define _ELFDEFINITIONS_H_
+-#define _ELF_H
+ 
+ #include <stdint.h>
+ 

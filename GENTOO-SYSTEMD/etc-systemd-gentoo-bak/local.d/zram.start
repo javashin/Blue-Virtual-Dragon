@@ -1,0 +1,16 @@
+#!/bin/bash
+SIZE=1536
+echo $(($SIZE*1024*1024)) > /sys/block/zram0/disksize
+echo $(($SIZE*1024*1024)) > /sys/block/zram1/disksize
+echo $(($SIZE*1024*1024)) > /sys/block/zram2/disksize
+echo $(($SIZE*1024*1024)) > /sys/block/zram3/disksize
+
+/sbin/mkswap /dev/zram0
+/sbin/mkswap /dev/zram1
+/sbin/mkswap /dev/zram2
+/sbin/mkswap /dev/zram3
+
+/sbin/swapon /dev/zram0 -p 10
+/sbin/swapon /dev/zram1 -p 10
+/sbin/swapon /dev/zram2 -p 10
+/sbin/swapon /dev/zram3 -p 10

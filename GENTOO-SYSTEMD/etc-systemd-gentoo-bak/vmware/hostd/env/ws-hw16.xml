@@ -1,0 +1,11 @@
+<ConfigRoot>
+  <ConfigurationDescriptor>
+    <_type>vim.vm.ConfigOptionDescriptor</_type>
+    <createSupported>true</createSupported>
+    <defaultConfigOption>true</defaultConfigOption>
+    <description>Hardware version 16 virtual machine</description>
+    <key>vmx-16</key>
+    <runSupported>true</runSupported>
+    <upgradeSupported>true</upgradeSupported>
+  </ConfigurationDescriptor>
+</ConfigRoot>

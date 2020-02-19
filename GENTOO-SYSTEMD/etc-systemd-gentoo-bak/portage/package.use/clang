@@ -1,0 +1,2 @@
+sys-libs/compiler-rt clang
+sys-libs/compiler-rt-sanitizers clang

@@ -1,0 +1,22 @@
+<tagExtractorConfig>
+   <methodRules>
+      <rule id="NetworkConfigMethodRule">
+         <tag>IsNetworkConfig</tag>
+         <value>1</value>
+         <description>Identifies configuration methods that pertain to networking</description>
+         <methodRegex>vim\.dvs\..*|vim\.host\.NetworkSystem\..*</methodRegex>
+      </rule>
+      <rule id="VMFoundryOpRule">
+         <tag>IsVMFoundryOp</tag>
+         <value>1</value>
+         <description>Identifies Virtual Machine operations involving foundry</description>
+         <methodRegex>vim\.VirtualMachine\.(acquireMksTicket|clone|createSecondary|createSnapshot|customize|destroy|disableSecondary|enableSecondary|makePrimary|migrate|mountToolsInstaller|powerOff|powerOn|rebootGuest|reconfigure|reload|reloadFromPath|relocate|removeAllSnapshots|turnOffFaultTolerance|recommendHostsForSecondaryVm|rename|reset|resetGuestInformation|retrieveScreenshot|revertToCurrentSnapshot|revertToSnapshot|screenshot|setScreenResolution|shutdownGuest|standbyGuest|startRecording|startReplaying|stopRecording|stopReplaying|suspend|terminate|terminateFaultTolerantVM|unmountToolsInstaller|unregister|upgradeTools|upgradeVirtualHardware)</methodRegex>
+      </rule>
+      <rule id="VMThrottledOpRule">
+         <tag>IsVMThrottledOp</tag>
+         <value>1</value>
+         <description>Identifies Virtual Machine operations that needs additional throttling</description>
+         <methodRegex>vim\.VirtualMachine\.(reconfigure|removeAllShapshots)|vim.folder.createVM|vim.host.LowLevelProvisioningManager.(createVM|reconfigVM|consolidateDisks)|vim.vm.Snapshot.remove</methodRegex>
+      </rule>
+   </methodRules>
+</tagExtractorConfig>

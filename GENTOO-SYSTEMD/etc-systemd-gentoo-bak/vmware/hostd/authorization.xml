@@ -1,0 +1,128 @@
+<ConfigRoot>
+  <ACEData id="10">
+    <ACEDataEntity>ha-folder-root</ACEDataEntity>
+    <ACEDataId>10</ACEDataId>
+    <ACEDataIsGroup>false</ACEDataIsGroup>
+    <ACEDataPropagate>true</ACEDataPropagate>
+    <ACEDataRoleId>-1</ACEDataRoleId>
+    <ACEDataUser>root</ACEDataUser>
+  </ACEData>
+  <NextAceId>11</NextAceId>
+  <NextRoleId>12</NextRoleId>
+  <PrivSet id="10">
+    <Priv id="Datastore.AllocateSpace">Datastore.AllocateSpace</Priv>
+    <Priv id="Datastore.Browse">Datastore.Browse</Priv>
+    <Priv id="Network.Assign">Network.Assign</Priv>
+    <Priv id="Resource.AssignVMToPool">Resource.AssignVMToPool</Priv>
+    <Priv id="VirtualMachine.Config.AddExistingDisk">VirtualMachine.Config.AddExistingDisk</Priv>
+    <Priv id="VirtualMachine.Config.AddNewDisk">VirtualMachine.Config.AddNewDisk</Priv>
+    <Priv id="VirtualMachine.Config.AddRemoveDevice">VirtualMachine.Config.AddRemoveDevice</Priv>
+    <Priv id="VirtualMachine.Config.AdvancedConfig">VirtualMachine.Config.AdvancedConfig</Priv>
+    <Priv id="VirtualMachine.Config.Annotation">VirtualMachine.Config.Annotation</Priv>
+    <Priv id="VirtualMachine.Config.CPUCount">VirtualMachine.Config.CPUCount</Priv>
+    <Priv id="VirtualMachine.Config.ChangeTracking">VirtualMachine.Config.ChangeTracking</Priv>
+    <Priv id="VirtualMachine.Config.DiskExtend">VirtualMachine.Config.DiskExtend</Priv>
+    <Priv id="VirtualMachine.Config.DiskLease">VirtualMachine.Config.DiskLease</Priv>
+    <Priv id="VirtualMachine.Config.EditDevice">VirtualMachine.Config.EditDevice</Priv>
+    <Priv id="VirtualMachine.Config.HostUSBDevice">VirtualMachine.Config.HostUSBDevice</Priv>
+    <Priv id="VirtualMachine.Config.ManagedBy">VirtualMachine.Config.ManagedBy</Priv>
+    <Priv id="VirtualMachine.Config.Memory">VirtualMachine.Config.Memory</Priv>
+    <Priv id="VirtualMachine.Config.MksControl">VirtualMachine.Config.MksControl</Priv>
+    <Priv id="VirtualMachine.Config.QueryUnownedFiles">VirtualMachine.Config.QueryUnownedFiles</Priv>
+    <Priv id="VirtualMachine.Config.RawDevice">VirtualMachine.Config.RawDevice</Priv>
+    <Priv id="VirtualMachine.Config.RemoveDisk">VirtualMachine.Config.RemoveDisk</Priv>
+    <Priv id="VirtualMachine.Config.Rename">VirtualMachine.Config.Rename</Priv>
+    <Priv id="VirtualMachine.Config.ResetGuestInfo">VirtualMachine.Config.ResetGuestInfo</Priv>
+    <Priv id="VirtualMachine.Config.Resource">VirtualMachine.Config.Resource</Priv>
+    <Priv id="VirtualMachine.Config.Settings">VirtualMachine.Config.Settings</Priv>
+    <Priv id="VirtualMachine.Config.SwapPlacement">VirtualMachine.Config.SwapPlacement</Priv>
+    <Priv id="VirtualMachine.Config.UpgradeVirtualHardware">VirtualMachine.Config.UpgradeVirtualHardware</Priv>
+    <Priv id="VirtualMachine.Interact.AnswerQuestion">VirtualMachine.Interact.AnswerQuestion</Priv>
+    <Priv id="VirtualMachine.Interact.Backup">VirtualMachine.Interact.Backup</Priv>
+    <Priv id="VirtualMachine.Interact.ConsoleInteract">VirtualMachine.Interact.ConsoleInteract</Priv>
+    <Priv id="VirtualMachine.Interact.CreateScreenshot">VirtualMachine.Interact.CreateScreenshot</Priv>
+    <Priv id="VirtualMachine.Interact.DefragmentAllDisks">VirtualMachine.Interact.DefragmentAllDisks</Priv>
+    <Priv id="VirtualMachine.Interact.DeviceConnection">VirtualMachine.Interact.DeviceConnection</Priv>
+    <Priv id="VirtualMachine.Interact.GuestControl">VirtualMachine.Interact.GuestControl</Priv>
+    <Priv id="VirtualMachine.Interact.PowerOff">VirtualMachine.Interact.PowerOff</Priv>
+    <Priv id="VirtualMachine.Interact.PowerOn">VirtualMachine.Interact.PowerOn</Priv>
+    <Priv id="VirtualMachine.Interact.Record">VirtualMachine.Interact.Record</Priv>
+    <Priv id="VirtualMachine.Interact.Replay">VirtualMachine.Interact.Replay</Priv>
+    <Priv id="VirtualMachine.Interact.Reset">VirtualMachine.Interact.Reset</Priv>
+    <Priv id="VirtualMachine.Interact.SetCDMedia">VirtualMachine.Interact.SetCDMedia</Priv>
+    <Priv id="VirtualMachine.Interact.SetFloppyMedia">VirtualMachine.Interact.SetFloppyMedia</Priv>
+    <Priv id="VirtualMachine.Interact.Suspend">VirtualMachine.Interact.Suspend</Priv>
+    <Priv id="VirtualMachine.Interact.ToolsInstall">VirtualMachine.Interact.ToolsInstall</Priv>
+    <Priv id="VirtualMachine.Inventory.Create">VirtualMachine.Inventory.Create</Priv>
+    <Priv id="VirtualMachine.Inventory.CreateFromExisting">VirtualMachine.Inventory.CreateFromExisting</Priv>
+    <Priv id="VirtualMachine.Inventory.Delete">VirtualMachine.Inventory.Delete</Priv>
+    <Priv id="VirtualMachine.Inventory.Register">VirtualMachine.Inventory.Register</Priv>
+    <Priv id="VirtualMachine.Inventory.Unregister">VirtualMachine.Inventory.Unregister</Priv>
+    <Priv id="VirtualMachine.Provisioning.GetVmFiles">VirtualMachine.Provisioning.GetVmFiles</Priv>
+    <Priv id="VirtualMachine.Provisioning.PutVmFiles">VirtualMachine.Provisioning.PutVmFiles</Priv>
+    <Priv id="VirtualMachine.State.CreateSnapshot">VirtualMachine.State.CreateSnapshot</Priv>
+    <Priv id="VirtualMachine.State.RemoveSnapshot">VirtualMachine.State.RemoveSnapshot</Priv>
+    <Priv id="VirtualMachine.State.RenameSnapshot">VirtualMachine.State.RenameSnapshot</Priv>
+    <Priv id="VirtualMachine.State.RevertToSnapshot">VirtualMachine.State.RevertToSnapshot</Priv>
+    <PrivRoleId>10</PrivRoleId>
+  </PrivSet>
+  <PrivSet id="11">
+    <Priv id="Datastore.AllocateSpace">Datastore.AllocateSpace</Priv>
+    <Priv id="Datastore.Browse">Datastore.Browse</Priv>
+    <Priv id="Network.Assign">Network.Assign</Priv>
+    <Priv id="VirtualMachine.Config.AddExistingDisk">VirtualMachine.Config.AddExistingDisk</Priv>
+    <Priv id="VirtualMachine.Config.AddNewDisk">VirtualMachine.Config.AddNewDisk</Priv>
+    <Priv id="VirtualMachine.Config.AddRemoveDevice">VirtualMachine.Config.AddRemoveDevice</Priv>
+    <Priv id="VirtualMachine.Config.AdvancedConfig">VirtualMachine.Config.AdvancedConfig</Priv>
+    <Priv id="VirtualMachine.Config.Annotation">VirtualMachine.Config.Annotation</Priv>
+    <Priv id="VirtualMachine.Config.CPUCount">VirtualMachine.Config.CPUCount</Priv>
+    <Priv id="VirtualMachine.Config.ChangeTracking">VirtualMachine.Config.ChangeTracking</Priv>
+    <Priv id="VirtualMachine.Config.DiskExtend">VirtualMachine.Config.DiskExtend</Priv>
+    <Priv id="VirtualMachine.Config.DiskLease">VirtualMachine.Config.DiskLease</Priv>
+    <Priv id="VirtualMachine.Config.EditDevice">VirtualMachine.Config.EditDevice</Priv>
+    <Priv id="VirtualMachine.Config.HostUSBDevice">VirtualMachine.Config.HostUSBDevice</Priv>
+    <Priv id="VirtualMachine.Config.ManagedBy">VirtualMachine.Config.ManagedBy</Priv>
+    <Priv id="VirtualMachine.Config.Memory">VirtualMachine.Config.Memory</Priv>
+    <Priv id="VirtualMachine.Config.MksControl">VirtualMachine.Config.MksControl</Priv>
+    <Priv id="VirtualMachine.Config.QueryUnownedFiles">VirtualMachine.Config.QueryUnownedFiles</Priv>
+    <Priv id="VirtualMachine.Config.RawDevice">VirtualMachine.Config.RawDevice</Priv>
+    <Priv id="VirtualMachine.Config.RemoveDisk">VirtualMachine.Config.RemoveDisk</Priv>
+    <Priv id="VirtualMachine.Config.Rename">VirtualMachine.Config.Rename</Priv>
+    <Priv id="VirtualMachine.Config.ResetGuestInfo">VirtualMachine.Config.ResetGuestInfo</Priv>
+    <Priv id="VirtualMachine.Config.Resource">VirtualMachine.Config.Resource</Priv>
+    <Priv id="VirtualMachine.Config.Settings">VirtualMachine.Config.Settings</Priv>
+    <Priv id="VirtualMachine.Config.SwapPlacement">VirtualMachine.Config.SwapPlacement</Priv>
+    <Priv id="VirtualMachine.Config.UpgradeVirtualHardware">VirtualMachine.Config.UpgradeVirtualHardware</Priv>
+    <Priv id="VirtualMachine.Interact.AnswerQuestion">VirtualMachine.Interact.AnswerQuestion</Priv>
+    <Priv id="VirtualMachine.Interact.Backup">VirtualMachine.Interact.Backup</Priv>
+    <Priv id="VirtualMachine.Interact.ConsoleInteract">VirtualMachine.Interact.ConsoleInteract</Priv>
+    <Priv id="VirtualMachine.Interact.CreateScreenshot">VirtualMachine.Interact.CreateScreenshot</Priv>
+    <Priv id="VirtualMachine.Interact.DefragmentAllDisks">VirtualMachine.Interact.DefragmentAllDisks</Priv>
+    <Priv id="VirtualMachine.Interact.DeviceConnection">VirtualMachine.Interact.DeviceConnection</Priv>
+    <Priv id="VirtualMachine.Interact.GuestControl">VirtualMachine.Interact.GuestControl</Priv>
+    <Priv id="VirtualMachine.Interact.PowerOff">VirtualMachine.Interact.PowerOff</Priv>
+    <Priv id="VirtualMachine.Interact.PowerOn">VirtualMachine.Interact.PowerOn</Priv>
+    <Priv id="VirtualMachine.Interact.Record">VirtualMachine.Interact.Record</Priv>
+    <Priv id="VirtualMachine.Interact.Replay">VirtualMachine.Interact.Replay</Priv>
+    <Priv id="VirtualMachine.Interact.Reset">VirtualMachine.Interact.Reset</Priv>
+    <Priv id="VirtualMachine.Interact.SetCDMedia">VirtualMachine.Interact.SetCDMedia</Priv>
+    <Priv id="VirtualMachine.Interact.SetFloppyMedia">VirtualMachine.Interact.SetFloppyMedia</Priv>
+    <Priv id="VirtualMachine.Interact.Suspend">VirtualMachine.Interact.Suspend</Priv>
+    <Priv id="VirtualMachine.Interact.ToolsInstall">VirtualMachine.Interact.ToolsInstall</Priv>
+    <Priv id="VirtualMachine.Provisioning.GetVmFiles">VirtualMachine.Provisioning.GetVmFiles</Priv>
+    <Priv id="VirtualMachine.Provisioning.PutVmFiles">VirtualMachine.Provisioning.PutVmFiles</Priv>
+    <Priv id="VirtualMachine.State.CreateSnapshot">VirtualMachine.State.CreateSnapshot</Priv>
+    <Priv id="VirtualMachine.State.RemoveSnapshot">VirtualMachine.State.RemoveSnapshot</Priv>
+    <Priv id="VirtualMachine.State.RenameSnapshot">VirtualMachine.State.RenameSnapshot</Priv>
+    <Priv id="VirtualMachine.State.RevertToSnapshot">VirtualMachine.State.RevertToSnapshot</Priv>
+    <PrivRoleId>11</PrivRoleId>
+  </PrivSet>
+  <RoleData id="10">
+    <RoleId>10</RoleId>
+    <RoleName>VM Creator</RoleName>
+  </RoleData>
+  <RoleData id="11">
+    <RoleId>11</RoleId>
+    <RoleName>VM User</RoleName>
+  </RoleData>
+</ConfigRoot>

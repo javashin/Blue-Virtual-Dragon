@@ -1,0 +1,6 @@
+# See ldap.conf(5) and README.LDAP for details
+# This file should only be readable by root
+
+# supported directives: host, port, ssl, ldap_version
+# uri, binddn, bindpw, sudoers_base, sudoers_debug
+# tls_{checkpeer,cacertfile,cacertdir,randfile,ciphers,cert,key}

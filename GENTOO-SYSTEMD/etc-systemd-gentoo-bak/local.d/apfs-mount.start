@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+####/usr/bin/cpupower frequency-set -g performance
+#/usr/sbin/x86_energy_perf_policy performance
+#exec echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo
+#/usr/bin/cpupower frequency-set -g performance
+mkdir -p /run/media/javashin/macos
+/usr/local/bin/apfs-fuse -o allow_other /dev/sda8 /run/media/javashin/macos

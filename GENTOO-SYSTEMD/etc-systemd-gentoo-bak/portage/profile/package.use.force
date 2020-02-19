@@ -1,0 +1,3 @@
+sys-devel/gcc -pie -ssp
+sys-libs/glibc -pie -ssp
+*/* threads

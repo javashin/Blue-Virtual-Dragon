@@ -1,0 +1,37 @@
+<dispatchPolicyConfig>
+   <limitPolicies>
+     <policy id="LimitNetworkConfig">
+       <description>Limit the number of network configuration to only one at a time</description>
+       <enabled>True</enabled>
+       <matchCriterionList>
+          <criterion id="1">
+            <tagName>IsNetworkConfig</tagName>
+            <value>1</value>
+          </criterion>
+       </matchCriterionList>
+       <limit>1</limit>
+     </policy>
+     <policy id="LimitFoundryVMOp">
+       <description>Limit the number of VM ops involving foundry</description>
+       <enabled>True</enabled>
+       <matchCriterionList>
+          <criterion id="1">
+            <tagName>IsVMFoundryOp</tagName>
+            <value>1</value>
+          </criterion>
+       </matchCriterionList>
+       <limit>10</limit>
+     </policy>
+     <policy id="LimitVMThrottledOp">
+       <description>Limit the number of VM ops</description>
+       <enabled>True</enabled>
+       <matchCriterionList>
+          <criterion id="1">
+            <tagName>IsVMThrottledOp</tagName>
+            <value>1</value>
+          </criterion>
+       </matchCriterionList>
+       <limit>8</limit>
+     </policy>
+  </limitPolicies>
+</dispatchPolicyConfig>

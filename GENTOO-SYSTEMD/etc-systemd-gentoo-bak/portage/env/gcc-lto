@@ -1,0 +1,8 @@
+NOLDADD=1
+CFLAGS="-O3 -fgraphite-identity -floop-nest-optimize -fdevirtualize-at-ltrans -fipa-pta -fno-semantic-interposition -flto=3 -fuse-linker-plugin -march=native -mfpmath=sse+387 -falign-functions=32 -flimit-function-alignment -fno-plt -fno-math-errno -fno-trapping-math -fno-stack-protector -pipe"
+CXXFLAGS="-O3 -fgraphite-identity -floop-nest-optimize -fdevirtualize-at-ltrans -fipa-pta -fno-semantic-interposition -flto=3 -fuse-linker-plugin -march=native -mfpmath=sse+387 -falign-functions=32 -flimit-function-alignment -fno-plt -fno-math-errno -fno-trapping-math -fno-stack-protector -pipe"
+FCFLAGS="-O3 -fgraphite-identity -floop-nest-optimize -fdevirtualize-at-ltrans -fipa-pta -fno-semantic-interposition -flto=3 -fuse-linker-plugin -march=native -mfpmath=sse+387 -falign-functions=32 -flimit-function-alignment -fno-plt -fno-math-errno -fno-trapping-math -fno-stack-protector -pipe"
+FFLAGS="-O3 -fgraphite-identity -floop-nest-optimize -fdevirtualize-at-ltrans -fipa-pta -fno-semantic-interposition -flto=3 -fuse-linker-plugin -march=native -mfpmath=sse+387 -falign-functions=32 -flimit-function-alignment -fno-plt -fno-math-errno -fno-trapping-math -fno-stack-protector -pipe"
+CPPFLAGS="-O3 -fgraphite-identity -floop-nest-optimize -fdevirtualize-at-ltrans -fipa-pta -fno-semantic-interposition -flto=3 -fuse-linker-plugin -march=native -mfpmath=sse+387 -falign-functions=32 -flimit-function-alignment -fno-plt -fno-math-errno -fno-trapping-math -fno-stack-protector -pipe"
+LDFLAGS="-Wl,-O2 -Wl,--as-needed,-z,now -Wl,--hash-style=gnu"
+

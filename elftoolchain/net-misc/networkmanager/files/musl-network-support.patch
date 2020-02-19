@@ -1,0 +1,62 @@
+From 530814cb0d4f3369c18a88a31b5f14f2ed6544bc Mon Sep 17 00:00:00 2001
+From: 
+Date: Thu, 28 Mar 2019 11:50:06 -0500
+Subject: [PATCH 4/5] musl network support
+
+---
+ libnm-core/nm-utils.h                  | 4 ++++
+ shared/systemd/src/basic/socket-util.h | 5 +++++
+ src/platform/wifi/nm-wifi-utils.h      | 4 ++++
+ 3 files changed, 13 insertions(+)
+
+diff --git a/libnm-core/nm-utils.h b/libnm-core/nm-utils.h
+index 2b5baba..976850c 100644
+--- a/libnm-core/nm-utils.h
++++ b/libnm-core/nm-utils.h
+@@ -30,7 +30,11 @@
+ #include <netinet/in.h>
+ 
+ /* For ETH_ALEN and INFINIBAND_ALEN */
++#if defined(__GLIBC__)
+ #include <linux/if_ether.h>
++#else
++#define ETH_ALEN	6		/* Octets in one ethernet addr	 */
++#endif
+ #include <linux/if_infiniband.h>
+ 
+ #include "nm-core-enum-types.h"
+diff --git a/shared/systemd/src/basic/socket-util.h b/shared/systemd/src/basic/socket-util.h
+index d2246a8..4cb0807 100644
+--- a/shared/systemd/src/basic/socket-util.h
++++ b/shared/systemd/src/basic/socket-util.h
+@@ -12,6 +12,11 @@
+ #include <sys/socket.h>
+ #include <sys/types.h>
+ #include <sys/un.h>
++#if !defined(__GLIBC__)
++/* SIOCGSTAMPNS from linux/asm-generic.h 
++ * for src/systemd/src/libsystemd-network/sd-lldp.c */
++#include <linux/sockios.h>
++#endif
+ 
+ #include "macro.h"
+ #include "missing_socket.h"
+diff --git a/src/platform/wifi/nm-wifi-utils.h b/src/platform/wifi/nm-wifi-utils.h
+index 36148b5..d282eb2 100644
+--- a/src/platform/wifi/nm-wifi-utils.h
++++ b/src/platform/wifi/nm-wifi-utils.h
+@@ -22,7 +22,11 @@
+ #ifndef __WIFI_UTILS_H__
+ #define __WIFI_UTILS_H__
+ 
++#if defined(__GLIBC__)
+ #include <net/ethernet.h>
++#else /* musl libc */
++#define ETH_ALEN	6		/* Octets in one ethernet addr	 */
++#endif
+ 
+ #include "nm-dbus-interface.h"
+ #include "nm-setting-wireless.h"
+-- 
+2.21.0
+

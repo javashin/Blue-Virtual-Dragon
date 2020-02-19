@@ -1,0 +1,153 @@
+--- firefox-70.0.1.ebuild	2019-11-10 14:39:46.000000000 -0400
++++ firefox-70.0-r1.ebuild	2019-10-24 22:22:48.011761468 -0400
+@@ -56,11 +56,7 @@
+ 	+screenshot selinux startup-notification +system-av1
+ 	+system-harfbuzz +system-icu +system-jpeg +system-libevent
+ 	+system-sqlite +system-libvpx +system-webp test wayland wifi"
+-
+-REQUIRED_USE="pgo? ( lto )"
+-
+-RESTRICT="!bindist? ( bindist )
+-	!test? ( test )"
++RESTRICT="!bindist? ( bindist )"
+ 
+ PATCH_URIS=( https://dev.gentoo.org/~{anarchy,axs,polynomial-c,whissi}/mozilla/patchsets/${PATCH}.tar.xz )
+ SRC_URI="${SRC_URI}
+@@ -103,7 +99,7 @@
+ 		>=media-libs/libaom-1.0.0:=
+ 	)
+ 	system-harfbuzz? ( >=media-libs/harfbuzz-2.5.3:0= >=media-gfx/graphite2-1.3.13 )
+-	system-icu? ( >=dev-libs/icu-64.1:= )
++	system-icu? ( >=dev-libs/icu-63.1:= )
+ 	system-jpeg? ( >=media-libs/libjpeg-turbo-1.2.1 )
+ 	system-libevent? ( >=dev-libs/libevent-2.0:0=[threads] )
+ 	system-libvpx? ( =media-libs/libvpx-1.7*:0=[postproc] )
+@@ -128,7 +124,6 @@
+ 	app-arch/unzip
+ 	>=dev-util/cbindgen-0.9.1
+ 	>=net-libs/nodejs-8.11.0
+-	>=sys-devel/binutils-2.30
+ 	sys-apps/findutils
+ 	|| (
+ 		(
+@@ -178,6 +173,10 @@
+ 		x86? ( >=dev-lang/nasm-2.13 )
+ 	)"
+ 
++REQUIRED_USE="pgo? ( lto )"
++
++RESTRICT="!test? ( test )"
++
+ S="${WORKDIR}/firefox-${PV%_*}"
+ 
+ QA_PRESTRIPPED="usr/lib*/${PN}/firefox"
+@@ -192,36 +191,36 @@
+ 
+ llvm_check_deps() {
+ 	if ! has_version --host-root "sys-devel/clang:${LLVM_SLOT}" ; then
+-		ewarn "sys-devel/clang:${LLVM_SLOT} is missing! Cannot use LLVM slot ${LLVM_SLOT} ..." >&2
++		ewarn "sys-devel/clang:${LLVM_SLOT} is missing! Cannot use LLVM slot ${LLVM_SLOT} ..."
+ 		return 1
+ 	fi
+ 
++	if use pgo ; then
++		if ! has usersandbox $FEATURES ; then
++			eerror "You must enable usersandbox as X server can not run as root!"
++		fi
++	fi
++
+ 	if use clang ; then
+ 		if ! has_version --host-root "=sys-devel/lld-${LLVM_SLOT}*" ; then
+-			ewarn "=sys-devel/lld-${LLVM_SLOT}* is missing! Cannot use LLVM slot ${LLVM_SLOT} ..." >&2
++			ewarn "=sys-devel/lld-${LLVM_SLOT}* is missing! Cannot use LLVM slot ${LLVM_SLOT} ..."
+ 			return 1
+ 		fi
+ 
+ 		if use pgo ; then
+ 			if ! has_version --host-root "=sys-libs/compiler-rt-sanitizers-${LLVM_SLOT}*" ; then
+-				ewarn "=sys-libs/compiler-rt-sanitizers-${LLVM_SLOT}* is missing! Cannot use LLVM slot ${LLVM_SLOT} ..." >&2
++				ewarn "=sys-libs/compiler-rt-sanitizers-${LLVM_SLOT}* is missing! Cannot use LLVM slot ${LLVM_SLOT} ..."
+ 				return 1
+ 			fi
+ 		fi
+ 	fi
+ 
+-	einfo "Will use LLVM slot ${LLVM_SLOT}!" >&2
++	einfo "Will use LLVM slot ${LLVM_SLOT}!"
+ }
+ 
+ pkg_setup() {
+ 	moz_pkgsetup
+ 
+-	if use pgo ; then
+-		if ! has usersandbox $FEATURES ; then
+-			die "You must enable usersandbox as X server can not run as root!"
+-		fi
+-	fi
+-
+ 	# Avoid PGO profiling problems due to enviroment leakage
+ 	# These should *always* be cleaned up anyway
+ 	unset DBUS_SESSION_BUS_ADDRESS \
+@@ -267,8 +266,6 @@
+ 	eapply "${WORKDIR}/firefox"
+ 	eapply "${FILESDIR}/${PN}-69.0-lto-gcc-fix.patch"
+ 
+-	eapply "${FILESDIR}"/${PN}-70.0.1-rust-1.39+.patch
+-
+ 	# Allow user to apply any additional patches without modifing ebuild
+ 	eapply_user
+ 
+@@ -343,20 +340,14 @@
+ 		einfo "TERM is unset."
+ 	fi
+ 
+-	if use clang && ! tc-is-clang ; then
++
+ 		# Force clang
+ 		einfo "Enforcing the use of clang due to USE=clang ..."
+ 		CC=${CHOST}-clang
+ 		CXX=${CHOST}-clang++
+ 		strip-unsupported-flags
+-	elif ! use clang && ! tc-is-gcc ; then
+-		# Force gcc
+-		einfo "Enforcing the use of gcc due to USE=-clang ..."
+-		CC=${CHOST}-gcc
+-		CXX=${CHOST}-g++
+-		strip-unsupported-flags
+-	fi
+ 
++	
+ 	####################################
+ 	#
+ 	# mozconfig, CFLAGS and CXXFLAGS setup
+@@ -371,6 +362,9 @@
+ 
+ 	# Must pass release in order to properly select linker
+ 	mozconfig_annotate 'Enable by Gentoo' --enable-release
++        mozconfig_annotate '' --disable-gold
++        mozconfig_annotate '' --disable-jemalloc
++        mozconfig_annotate '' --disable-elf-hack
+ 
+ 	# libclang.so is not properly detected work around issue
+ 	mozconfig_annotate '' --with-libclang-path="$(llvm-config --libdir)"
+@@ -418,7 +412,7 @@
+ 			fi
+ 
+ 			# Linking only works when using ld.gold when LTO is enabled
+-			mozconfig_annotate "forcing ld=gold due to USE=lto" --enable-linker=gold
++			mozconfig_annotate "forcing ld=gold due to USE=lto" --enable-linker=lld
+ 		fi
+ 
+ 		if [[ -n "${show_old_compiler_warning}" ]] ; then
+@@ -446,9 +440,9 @@
+ 			# This is upstream's default
+ 			mozconfig_annotate "forcing ld=lld due to USE=clang" --enable-linker=lld
+ 		elif tc-ld-is-gold ; then
+-			mozconfig_annotate "linker is set to gold" --enable-linker=gold
++			mozconfig_annotate "linker is set to gold" --enable-linker=lld
+ 		else
+-			mozconfig_annotate "linker is set to bfd" --enable-linker=bfd
++			mozconfig_annotate "linker is set to bfd" --enable-linker=lld
+ 		fi
+ 	fi
+ 

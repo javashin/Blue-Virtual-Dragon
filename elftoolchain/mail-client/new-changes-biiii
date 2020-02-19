@@ -1,0 +1,128 @@
+--- thunderbird-68.2.2.ebuild	2019-11-08 09:09:34.000000000 -0400
++++ thunderbird-68.2.2-r2.ebuild	2019-11-14 05:33:55.241331301 -0400
+@@ -36,7 +36,7 @@
+ DESCRIPTION="Thunderbird Mail Client"
+ HOMEPAGE="https://www.mozilla.org/thunderbird"
+ 
+-KEYWORDS="amd64 ~ppc64 x86 ~amd64-linux ~x86-linux"
++KEYWORDS="~amd64 ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+ SLOT="0"
+ LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
+ IUSE="bindist clang cpu_flags_x86_avx2 dbus debug eme-free
+@@ -117,7 +117,6 @@
+ 	app-arch/unzip
+ 	>=dev-util/cbindgen-0.8.7
+ 	>=net-libs/nodejs-8.11.0
+-	>=sys-devel/binutils-2.30
+ 	sys-apps/findutils
+ 	|| (
+ 		(
+@@ -182,36 +181,36 @@
+ 
+ llvm_check_deps() {
+ 	if ! has_version --host-root "sys-devel/clang:${LLVM_SLOT}" ; then
+-		ewarn "sys-devel/clang:${LLVM_SLOT} is missing! Cannot use LLVM slot ${LLVM_SLOT} ..." >&2
++		ewarn "sys-devel/clang:${LLVM_SLOT} is missing! Cannot use LLVM slot ${LLVM_SLOT} ..."
+ 		return 1
+ 	fi
+ 
++	if use pgo ; then
++		if ! has usersandbox $FEATURES ; then
++			eerror "You must enable usersandbox as X server can not run as root!"
++		fi
++	fi
++
+ 	if use clang ; then
+ 		if ! has_version --host-root "=sys-devel/lld-${LLVM_SLOT}*" ; then
+-			ewarn "=sys-devel/lld-${LLVM_SLOT}* is missing! Cannot use LLVM slot ${LLVM_SLOT} ..." >&2
++			ewarn "=sys-devel/lld-${LLVM_SLOT}* is missing! Cannot use LLVM slot ${LLVM_SLOT} ..."
+ 			return 1
+ 		fi
+ 
+ 		if use pgo ; then
+ 			if ! has_version --host-root "=sys-libs/compiler-rt-sanitizers-${LLVM_SLOT}*" ; then
+-				ewarn "=sys-libs/compiler-rt-sanitizers-${LLVM_SLOT}* is missing! Cannot use LLVM slot ${LLVM_SLOT} ..." >&2
++				ewarn "=sys-libs/compiler-rt-sanitizers-${LLVM_SLOT}* is missing! Cannot use LLVM slot ${LLVM_SLOT} ..."
+ 				return 1
+ 			fi
+ 		fi
+ 	fi
+ 
+-	einfo "Will use LLVM slot ${LLVM_SLOT}!" >&2
++	einfo "Will use LLVM slot ${LLVM_SLOT}!"
+ }
+ 
+ pkg_setup() {
+ 	moz_pkgsetup
+ 
+-	if use pgo ; then
+-		if ! has usersandbox $FEATURES ; then
+-			die "You must enable usersandbox as X server can not run as root!"
+-		fi
+-	fi
+-
+ 	# Avoid PGO profiling problems due to enviroment leakage
+ 	# These should *always* be cleaned up anyway
+ 	unset DBUS_SESSION_BUS_ADDRESS \
+@@ -261,8 +260,6 @@
+ 	eapply "${FILESDIR}/1000_fix_gentoo_preferences.patch"
+ 	popd &>/dev/null || die
+ 
+-	eapply "${FILESDIR}"/${PN}-68.2.2-rust-1.39+.patch
+-
+ 	# Allow user to apply any additional patches without modifing ebuild
+ 	eapply_user
+ 
+@@ -337,19 +334,13 @@
+ 		einfo "TERM is unset."
+ 	fi
+ 
+-	if use clang && ! tc-is-clang ; then
++
+ 		# Force clang
+ 		einfo "Enforcing the use of clang due to USE=clang ..."
+ 		CC=${CHOST}-clang
+ 		CXX=${CHOST}-clang++
+ 		strip-unsupported-flags
+-	elif ! use clang && ! tc-is-gcc ; then
+-		# Force gcc
+-		einfo "Enforcing the use of gcc due to USE=-clang ..."
+-		CC=${CHOST}-gcc
+-		CXX=${CHOST}-g++
+-		strip-unsupported-flags
+-	fi
++
+ 
+ 	####################################
+ 	#
+@@ -365,6 +356,9 @@
+ 
+ 	# Must pass release in order to properly select linker
+ 	mozconfig_annotate 'Enable by Gentoo' --enable-release
++        mozconfig_annotate '' --disable-gold
++        mozconfig_annotate '' --disable-jemalloc
++        mozconfig_annotate '' --disable-elf-hack
+ 
+ 	if use pgo ; then
+ 		if ! has userpriv $FEATURES ; then
+@@ -412,7 +406,7 @@
+ 			fi
+ 
+ 			# Linking only works when using ld.gold when LTO is enabled
+-			mozconfig_annotate "forcing ld=gold due to USE=lto" --enable-linker=gold
++			mozconfig_annotate "forcing ld=gold due to USE=lto" --enable-linker=lld
+ 		fi
+ 
+ 		if [[ -n "${show_old_compiler_warning}" ]] ; then
+@@ -440,9 +434,9 @@
+ 			# This is upstream's default
+ 			mozconfig_annotate "forcing ld=lld due to USE=clang" --enable-linker=lld
+ 		elif tc-ld-is-gold ; then
+-			mozconfig_annotate "linker is set to gold" --enable-linker=gold
++			mozconfig_annotate "linker is set to gold" --enable-linker=lld
+ 		else
+-			mozconfig_annotate "linker is set to bfd" --enable-linker=bfd
++			mozconfig_annotate "linker is set to bfd" --enable-linker=lld
+ 		fi
+ 	fi
+ 

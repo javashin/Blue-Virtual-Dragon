@@ -1,0 +1,218 @@
+diff -ur gnome-control-center-3.32.1.orig/meson.build gnome-control-center-3.32.1/meson.build
+--- gnome-control-center-3.32.1.orig/meson.build	2019-03-29 15:37:35.000000000 +0100
++++ gnome-control-center-3.32.1/meson.build	2019-06-01 19:53:43.645599517 +0200
+@@ -199,7 +199,8 @@
+                cc.has_function('explicit_bzero', prefix: '''#include <string.h>'''),
+                description: 'Define if explicit_bzero is available')
+ 
+-if host_is_linux
++enable_networkmanager = get_option('networkmanager')
++if enable_networkmanager
+   # network manager
+   network_manager_deps = [
+     dependency('libnm', version: '>= 1.10.0'),
+@@ -207,33 +208,39 @@
+     dependency('mm-glib', version: '>= 0.7')
+   ]
+ endif
+-config_h.set('BUILD_NETWORK', host_is_linux,
++config_h.set('BUILD_NETWORK', enable_networkmanager,
+              description: 'Define to 1 to build the Network panel')
+-config_h.set('HAVE_NETWORK_MANAGER', host_is_linux,
++config_h.set('HAVE_NETWORK_MANAGER', enable_networkmanager,
+              description: 'Define to 1 if NetworkManager is available')
+ 
++enable_bluetooth = get_option('bluetooth')
++enable_wacom = get_option('wacom')
+ if host_is_linux_not_s390
+   # gnome-bluetooth
+-  gnome_bluetooth_dep = dependency('gnome-bluetooth-1.0', version: '>= 3.18.2')
+-
+-  libwacom_dep = dependency('libwacom', version: '>= 0.7')
+-
+-  wacom_deps = [
+-    libwacom_dep,
+-  ]
+-  config_h.set('HAVE_WACOM_3D_STYLUS', libwacom_dep.version().version_compare('>= 0.27'),
++  if enable_bluetooth
++    gnome_bluetooth_dep = dependency('gnome-bluetooth-1.0', version: '>= 3.18.2')
++  endif
++
++  if enable_wacom
++    libwacom_dep = dependency('libwacom', version: '>= 0.7')
++
++    wacom_deps = [
++      libwacom_dep,
++    ]
++    config_h.set('HAVE_WACOM_3D_STYLUS', libwacom_dep.version().version_compare('>= 0.27'),
+                description: 'Define to 1 if libwacom provides definition for 3D styli')
++  endif
+ else
+   message('Bluetooth and Wacom panels will not be built (no USB support on this platform)')
+   message('Thunderbolt panel will not be built (not supported on this platform)')
+ endif
+-config_h.set('BUILD_BLUETOOTH', host_is_linux_not_s390,
++config_h.set('BUILD_BLUETOOTH', enable_bluetooth,
+              description: 'Define to 1 to build the Bluetooth panel')
+-config_h.set('HAVE_BLUETOOTH', host_is_linux_not_s390,
++config_h.set('HAVE_BLUETOOTH', enable_bluetooth,
+              description: 'Define to 1 if bluetooth support is available')
+-config_h.set('BUILD_WACOM', host_is_linux_not_s390,
++config_h.set('BUILD_WACOM', enable_wacom,
+              description: 'Define to 1 to build the Wacom panel')
+-config_h.set('HAVE_WACOM', host_is_linux_not_s390,
++config_h.set('HAVE_WACOM', enable_wacom,
+              description: 'Define to 1 if Wacom is supportted')
+ config_h.set('BUILD_THUNDERBOLT', host_is_linux_not_s390,
+              description: 'Define to 1 to build the Thunderbolt panel')
+@@ -288,11 +295,11 @@
+ output += '     gnome-session libexecdir ................... ' + gnome_session_libexecdir + '\n'
+ output += '     Optimized .................................. ' + control_center_optimized.to_string() + '\n'
+ output += ' Panels \n'
+-output += '     GNOME Bluetooth (Bluetooth panel) .......... ' + host_is_linux_not_s390.to_string() + '\n'
++output += '     GNOME Bluetooth (Bluetooth panel) .......... ' + enable_bluetooth.to_string() + '\n'
+ output += '     Cheese (Users panel webcam support) ........ ' + enable_cheese.to_string() + '\n'
+ output += '     IBus (Region panel IBus support) ........... ' + enable_ibus.to_string() + '\n'
+-output += '     NetworkManager (Network panel) ............. ' + host_is_linux.to_string() + '\n'
+-output += '     Wacom (Wacom tablet panel) ................. ' + host_is_linux_not_s390.to_string() + '\n'
++output += '     NetworkManager (Network panel) ............. ' + enable_networkmanager.to_string() + '\n'
++output += '     Wacom (Wacom tablet panel) ................. ' + enable_wacom.to_string() + '\n'
+ output += '     Wayland .................................... ' + enable_wayland.to_string() + '\n'
+ 
+ message(output)
+diff -ur gnome-control-center-3.32.1.orig/meson_options.txt gnome-control-center-3.32.1/meson_options.txt
+--- gnome-control-center-3.32.1.orig/meson_options.txt	2019-03-29 15:37:35.000000000 +0100
++++ gnome-control-center-3.32.1/meson_options.txt	2019-06-01 19:40:53.237641785 +0200
+@@ -3,4 +3,8 @@
+ option('gnome_session_libexecdir', type: 'string', value: '', description: 'Directory for gnome-session\'s libexecdir')
+ option('ibus', type: 'boolean', value: true, description: 'build with IBus support')
+ option('tracing', type: 'boolean', value: false, description: 'add extra debugging information')
+-option('wayland', type: 'boolean', value: true, description: 'build with Wayland support')
+\ Kein Zeilenumbruch am Dateiende.
++option('wayland', type: 'boolean', value: true, description: 'build with Wayland support')
++option('networkmanager', type: 'boolean', value: true, description: 'build with networkmanager support')
++option('wacom', type: 'boolean', value: true, description: 'build with wacom support')
++option('bluetooth', type: 'boolean', value: true, description: 'build with bluetooth support')
++option('kerberos', type: 'boolean', value: true, description: 'build with kerberos support')
+diff -ur gnome-control-center-3.32.1.orig/panels/meson.build gnome-control-center-3.32.1/panels/meson.build
+--- gnome-control-center-3.32.1.orig/panels/meson.build	2019-03-29 15:37:36.000000000 +0100
++++ gnome-control-center-3.32.1/panels/meson.build	2019-06-01 18:23:57.784294112 +0200
+@@ -22,15 +22,21 @@
+   'user-accounts'
+ ]
+ 
+-if host_is_linux
++if enable_networkmanager
+   panels += ['network']
+ endif
+ 
++if enable_bluetooth
++  panels += ['bluetooth']
++endif
++
++if enable_wacom
++  panels += ['wacom']
++endif
++
+ if host_is_linux_not_s390
+   panels += [
+-    'bluetooth',
+     'thunderbolt',
+-    'wacom'
+   ]
+ endif
+ 
+diff -ur gnome-control-center-3.32.1.orig/panels/user-accounts/cc-realm-manager.c gnome-control-center-3.32.1/panels/user-accounts/cc-realm-manager.c
+--- gnome-control-center-3.32.1.orig/panels/user-accounts/cc-realm-manager.c	2019-03-29 15:37:37.000000000 +0100
++++ gnome-control-center-3.32.1/panels/user-accounts/cc-realm-manager.c	2019-06-01 19:47:56.412969105 +0200
+@@ -22,7 +22,9 @@
+ 
+ #include "cc-realm-manager.h"
+ 
++#ifdef HAVE_KERBEROS
+ #include <krb5/krb5.h>
++#endif
+ 
+ #include <glib.h>
+ #include <glib/gi18n.h>
+@@ -613,6 +615,7 @@
+         g_slice_free (LoginClosure, login);
+ }
+ 
++#ifdef HAVE_KERBEROS
+ static krb5_error_code
+ login_perform_kinit (krb5_context k5,
+                      const gchar *realm,
+@@ -676,6 +679,7 @@
+ 
+         return code;
+ }
++#endif /* HAVE_KERBEROS */
+ 
+ static void
+ kinit_thread_func (GTask *task,
+@@ -683,6 +687,7 @@
+                    gpointer task_data,
+                    GCancellable *cancellable)
+ {
++#ifdef HAVE_KERBEROS
+         LoginClosure *login = task_data;
+         krb5_context k5 = NULL;
+         krb5_error_code code;
+@@ -761,7 +766,10 @@
+ 
+         if (k5)
+                 krb5_free_context (k5);
+-
++#else /* HAVE_KERBEROS */
++        g_task_return_new_error (task, CC_REALM_ERROR, CC_REALM_ERROR_GENERIC,
++                                         _("gnome-control-center was built without kerberos support"));
++#endif
+         g_object_unref (task);
+ }
+ 
+diff -ur gnome-control-center-3.32.1.orig/panels/user-accounts/meson.build gnome-control-center-3.32.1/panels/user-accounts/meson.build
+--- gnome-control-center-3.32.1.orig/panels/user-accounts/meson.build	2019-03-29 15:37:37.000000000 +0100
++++ gnome-control-center-3.32.1/panels/user-accounts/meson.build	2019-06-01 19:43:28.241274595 +0200
+@@ -156,20 +156,24 @@
+   'um-fingerprint-dialog.c',
+ )
+ 
+-# Kerberos support
+-krb_dep = dependency('krb5', required: false)
+-assert(krb_dep.found(), 'kerberos libraries not found in your path')
+-
+ deps = common_deps + [
+   accounts_dep,
+   gdk_pixbuf_dep,
+   gnome_desktop_dep,
+   liblanguage_dep,
+-  krb_dep,
+   m_dep,
+   polkit_gobject_dep,
+   dependency('pwquality', version: '>= 1.2.2')
+ ]
++# Kerberos support
++enable_kerberos = get_option('kerberos')
++if enable_kerberos
++  krb_dep = dependency('krb5', required: false)
++  assert(krb_dep.found(), 'kerberos libraries not found in your path')
++  deps += krb_dep
++  config_h.set('HAVE_kerberos', enable_kerberos,
++             description: 'Define to 1 to enable kerberos support')
++endif
+ 
+ if enable_cheese
+   deps += cheese_deps
+diff -ur gnome-control-center-3.32.1.orig/shell/meson.build gnome-control-center-3.32.1/shell/meson.build
+--- gnome-control-center-3.32.1.orig/shell/meson.build	2019-03-29 15:37:38.000000000 +0100
++++ gnome-control-center-3.32.1/shell/meson.build	2019-06-01 19:59:18.623670483 +0200
+@@ -115,7 +115,7 @@
+   shell_deps += cheese_deps
+ endif
+ 
+-if host_is_linux_not_s390
++if enable_wacom
+   shell_deps += wacom_deps
+ endif
+ 

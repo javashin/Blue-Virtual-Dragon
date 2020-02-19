@@ -1,0 +1,11 @@
+<ConfigRoot>
+  <ConfigurationDescriptor>
+    <_type>vim.vm.ConfigOptionDescriptor</_type>
+    <createSupported>false</createSupported>
+    <defaultConfigOption>false</defaultConfigOption>
+    <description>Hardware version 3 virtual machine</description>
+    <key>vmx-03</key>
+    <runSupported>false</runSupported>
+    <upgradeSupported>false</upgradeSupported>
+  </ConfigurationDescriptor>
+</ConfigRoot>

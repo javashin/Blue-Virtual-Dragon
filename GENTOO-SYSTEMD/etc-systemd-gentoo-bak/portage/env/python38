@@ -1,0 +1,16 @@
+CC="gcc"
+CXX="g++"
+AR="gcc-ar"
+NM="gcc-nm"
+RANLIB="gcc-ranlib"
+STRIP="gcc-strip"
+LD="ld.bfd"
+ax_cv_c_float_words_bigendian="no"
+export ax_cv_c_float_words_bigendian=no
+#CFLAGS="-O3 -march=native -mfpmath=sse+387 -falign-functions=32 -flimit-function-alignment -fno-math-errno -fno-trapping-math -fgraphite-identity -floop-nest-optimize -fno-stack-protector -pipe"
+#CXXFLAGS="${CFLAGS}"
+#FCFLAGS="${CFLAGS}"
+#FFLAGS="${CFLAGS}"
+#CPPFLAGS="${CFLAGS}"
+#LDFLAGS="-Wl,-O2 -Wl,--as-needed,-z,now -Wl,--hash-style=gnu"
+

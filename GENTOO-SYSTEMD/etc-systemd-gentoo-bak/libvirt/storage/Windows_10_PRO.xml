@@ -1,0 +1,19 @@
+<!--
+WARNING: THIS IS AN AUTO-GENERATED FILE. CHANGES TO IT ARE LIKELY TO BE
+OVERWRITTEN AND LOST. Changes to this xml configuration should be made using:
+  virsh pool-edit Windows_10_PRO
+or other application using the libvirt API.
+-->
+
+<pool type='dir'>
+  <name>Windows_10_PRO</name>
+  <uuid>fd82acc8-3859-4aff-8c9d-2a8fdbbf48da</uuid>
+  <capacity unit='bytes'>0</capacity>
+  <allocation unit='bytes'>0</allocation>
+  <available unit='bytes'>0</available>
+  <source>
+  </source>
+  <target>
+    <path>/run/media/javashin/Windows 10 PRO</path>
+  </target>
+</pool>

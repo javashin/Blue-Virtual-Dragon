@@ -1,0 +1,80 @@
+  eclass exists: /var/db/repos/gentoo/eclass/gnome2.eclass
+inherit: gnome2 -> /var/db/repos/gentoo/eclass/gnome2.eclass
+*** Multiple Inheritence (Level: 2)
+  eclass exists: /var/db/repos/gentoo/eclass/eutils.eclass
+inherit: eutils -> /var/db/repos/gentoo/eclass/eutils.eclass
+*** Multiple Inheritence (Level: 3)
+  eclass exists: /var/db/repos/gentoo/eclass/desktop.eclass
+inherit: desktop -> /var/db/repos/gentoo/eclass/desktop.eclass
+  eclass exists: /var/db/repos/gentoo/eclass/epatch.eclass
+inherit: epatch -> /var/db/repos/gentoo/eclass/epatch.eclass
+  eclass exists: /var/db/repos/gentoo/eclass/estack.eclass
+inherit: estack -> /var/db/repos/gentoo/eclass/estack.eclass
+  eclass exists: /var/db/repos/gentoo/eclass/ltprune.eclass
+inherit: ltprune -> /var/db/repos/gentoo/eclass/ltprune.eclass
+*** Multiple Inheritence (Level: 4)
+  eclass exists: /var/db/repos/gentoo/eclass/toolchain-funcs.eclass
+inherit: toolchain-funcs -> /var/db/repos/gentoo/eclass/toolchain-funcs.eclass
+*** Multiple Inheritence (Level: 5)
+  eclass exists: /var/db/repos/gentoo/eclass/multilib.eclass
+inherit: multilib -> /var/db/repos/gentoo/eclass/multilib.eclass
+*** Multiple Inheritence (Level: 6)
+  eclass exists: /var/db/repos/gentoo/eclass/toolchain-funcs.eclass
+inherit: toolchain-funcs -> /var/db/repos/gentoo/eclass/toolchain-funcs.eclass
+  eclass exists: /var/db/repos/gentoo/eclass/multilib.eclass
+inherit: multilib -> /var/db/repos/gentoo/eclass/multilib.eclass
+  eclass exists: /var/db/repos/gentoo/eclass/preserve-libs.eclass
+inherit: preserve-libs -> /var/db/repos/gentoo/eclass/preserve-libs.eclass
+  eclass exists: /var/db/repos/gentoo/eclass/toolchain-funcs.eclass
+inherit: toolchain-funcs -> /var/db/repos/gentoo/eclass/toolchain-funcs.eclass
+  eclass exists: /var/db/repos/gentoo/eclass/vcs-clean.eclass
+inherit: vcs-clean -> /var/db/repos/gentoo/eclass/vcs-clean.eclass
+  eclass exists: /var/db/repos/gentoo/eclass/libtool.eclass
+inherit: libtool -> /var/db/repos/gentoo/eclass/libtool.eclass
+*** Multiple Inheritence (Level: 3)
+  eclass exists: /var/db/repos/gentoo/eclass/toolchain-funcs.eclass
+inherit: toolchain-funcs -> /var/db/repos/gentoo/eclass/toolchain-funcs.eclass
+  eclass exists: /var/db/repos/gentoo/eclass/gnome.org.eclass
+inherit: gnome.org -> /var/db/repos/gentoo/eclass/gnome.org.eclass
+*** Multiple Inheritence (Level: 3)
+  eclass exists: /var/db/repos/gentoo/eclass/eapi7-ver.eclass
+inherit: eapi7-ver -> /var/db/repos/gentoo/eclass/eapi7-ver.eclass
+  eclass exists: /var/db/repos/gentoo/eclass/versionator.eclass
+inherit: versionator -> /var/db/repos/gentoo/eclass/versionator.eclass
+*** Multiple Inheritence (Level: 4)
+  eclass exists: /var/db/repos/gentoo/eclass/estack.eclass
+inherit: estack -> /var/db/repos/gentoo/eclass/estack.eclass
+  eclass exists: /var/db/repos/gentoo/eclass/gnome2-utils.eclass
+inherit: gnome2-utils -> /var/db/repos/gentoo/eclass/gnome2-utils.eclass
+*** Multiple Inheritence (Level: 3)
+  eclass exists: /var/db/repos/gentoo/eclass/eutils.eclass
+inherit: eutils -> /var/db/repos/gentoo/eclass/eutils.eclass
+*** Multiple Inheritence (Level: 3)
+  eclass exists: /var/db/repos/gentoo/eclass/xdg-utils.eclass
+inherit: xdg-utils -> /var/db/repos/gentoo/eclass/xdg-utils.eclass
+  eclass exists: /var/db/repos/gentoo/eclass/xdg.eclass
+inherit: xdg -> /var/db/repos/gentoo/eclass/xdg.eclass
+*** Multiple Inheritence (Level: 3)
+  eclass exists: /var/db/repos/gentoo/eclass/xdg-utils.eclass
+inherit: xdg-utils -> /var/db/repos/gentoo/eclass/xdg-utils.eclass
+EXPORT_FUNCTIONS: src_prepare -> xdg_src_prepare
+EXPORT_FUNCTIONS: pkg_preinst -> xdg_pkg_preinst
+EXPORT_FUNCTIONS: pkg_postinst -> xdg_pkg_postinst
+EXPORT_FUNCTIONS: pkg_postrm -> xdg_pkg_postrm
+EXPORT_FUNCTIONS: src_prepare -> gnome2_src_prepare
+EXPORT_FUNCTIONS: src_configure -> gnome2_src_configure
+EXPORT_FUNCTIONS: src_compile -> gnome2_src_compile
+EXPORT_FUNCTIONS: src_install -> gnome2_src_install
+EXPORT_FUNCTIONS: pkg_preinst -> gnome2_pkg_preinst
+EXPORT_FUNCTIONS: pkg_postinst -> gnome2_pkg_postinst
+EXPORT_FUNCTIONS: pkg_postrm -> gnome2_pkg_postrm
+  eclass exists: /var/db/repos/gentoo/eclass/vala.eclass
+inherit: vala -> /var/db/repos/gentoo/eclass/vala.eclass
+*** Multiple Inheritence (Level: 2)
+  eclass exists: /var/db/repos/gentoo/eclass/eutils.eclass
+inherit: eutils -> /var/db/repos/gentoo/eclass/eutils.eclass
+  eclass exists: /var/db/repos/gentoo/eclass/multilib.eclass
+inherit: multilib -> /var/db/repos/gentoo/eclass/multilib.eclass
+EXPORT_FUNCTIONS: src_prepare -> vala_src_prepare
+  eclass exists: /var/db/repos/gentoo/eclass/virtualx.eclass
+inherit: virtualx -> /var/db/repos/gentoo/eclass/virtualx.eclass

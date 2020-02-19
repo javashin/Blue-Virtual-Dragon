@@ -1,0 +1,15 @@
+CC="gcc"
+CXX="g++"
+AR="gcc-ar"
+NM="gcc-nm"
+RANLIB="gcc-ranlib"
+STRIP="gcc-strip"
+LD="ld.bfd"
+CFLAGS="-march=native -mfpmath=sse+387 -falign-functions=32 -flimit-function-alignment -O3 -fdevirtualize-at-ltrans -fipa-pta -fno-semantic-interposition -flto=3 -fuse-linker-plugin -fno-plt -fno-math-errno -fno-trapping-math -fno-stack-protector -fomit-frame-pointer -fstrict-aliasing -malign-data=cacheline -fbranch-target-load-optimize -ftracer -pthread -ftree-parallelize-loops=4 -floop-parallelize-all -fopenmp -fopenmp-simd -pipe"
+CXXFLAGS="${CFLAGS}"
+FCFLAGS="${CFLAGS}"
+FFLAGS="${CFLAGS}"
+CPPFLAGS="${CFLAGS}"
+LDFLAGS="-Wl,-O2 -Wl,--as-needed,-z,now -Wl,--hash-style=gnu"
+
+##graphite breaks

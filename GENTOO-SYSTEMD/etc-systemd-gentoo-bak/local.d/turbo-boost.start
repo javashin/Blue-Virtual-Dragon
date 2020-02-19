@@ -1,0 +1,7 @@
+#!/bin/bash
+/usr/bin/cpupower frequency-set -g schedutil
+#performance
+/usr/sbin/x86_energy_perf_policy performance
+exec echo 1  > /sys/devices/system/cpu/cpufreq/boost
+#exec echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo
+#/usr/bin/cpupower frequency-set -g performance
