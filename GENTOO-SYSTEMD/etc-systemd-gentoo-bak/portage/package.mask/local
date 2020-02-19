@@ -1,8 +1,0 @@
-=virtual/perl-Storable-3.80.100_rc::localrepo
-=dev-qt/qtgui-5.12.3-r2::localrepo
-
-=net-misc/ofono-1.29-r1::localrepo
-=x11-base/xorg-server-1.20.5-r1::localrepo
-=x11-base/xorg-server-1.20.5::localrepo
-x11-base/xorg-server::localrepo
-dev-libs/glib::localrepo

@@ -1,7 +1,0 @@
-CFLAGS="-O3 -fdevirtualize-at-ltrans -fipa-pta -fno-semantic-interposition -flto=3 -fuse-linker-plugin -march=native -mfpmath=sse+387 -falign-functions=32 -flimit-function-alignment -fno-plt -fno-math-errno -fno-trapping-math -fno-stack-protector -pipe"
-CXXFLAGS="${CFLAGS}"
-FCFLAGS="${CFLAGS}"
-FFLAGS="${CFLAGS}"
-CPPFLAGS="${CFLAGS}"
-LDFLAGS="-Wl,-O2 -Wl,--as-needed,-z,now -Wl,--hash-style=gnu"
-

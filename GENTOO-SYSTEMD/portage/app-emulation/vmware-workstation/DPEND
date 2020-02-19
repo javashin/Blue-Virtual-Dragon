@@ -1,2 +1,0 @@
-        modules? ( ~app-emulation/vmware-modules-${PV_MODULES} )
-

@@ -1,1 +1,0 @@
-/usr/libexec/zfs/zed.d/data-notify.sh

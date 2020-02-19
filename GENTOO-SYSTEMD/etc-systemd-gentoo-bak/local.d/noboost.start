@@ -1,5 +1,0 @@
-#!/bin/bash
-/usr/bin/cpupower frequency-set -g powersave
-/usr/sbin/x86_energy_perf_policy normal
-exec echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo
-#/usr/bin/cpupower frequency-set -g powersave

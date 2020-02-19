@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=LXPolKit
-Comment=Policykit Authentication Agent
-Exec=lxpolkit
-TryExec=lxpolkit
-Icon=gtk-dialog-authentication
-NotShowIn=GNOME;KDE;MATE;
-Hidden=true

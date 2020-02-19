@@ -1,6 +1,0 @@
-#!/bin/bash
-/usr/bin/cpupower frequency-set -g schedutil
-/usr/sbin/x86_energy_perf_policy normal
-exec printf 0  > /sys/devices/system/cpu/cpufreq/boost
-#exec printf 1 > /sys/devices/system/cpu/intel_pstate/no_turbo
-#/usr/bin/cpupower frequency-set -g powersave

@@ -1,9 +1,0 @@
-LD="ld.bfd"
-CFLAGS="-O3 -march=native -pipe"
-CXXFLAGS="-O3 -march=native -pipe"
-CPPFLAGS="-O3 -march=native -pipe"
-FFLAGS="-O3 -march=native -pipe"
-FCFLAGS="-O3 -march=native -pipe"
-F77FLAGS="-O3 -march=native -pipe"
-LDFLAGS="-Wl,-O2 -Wl,--as-needed -Wl,--hash-style=gnu"
-#-fno-strict-aliasing

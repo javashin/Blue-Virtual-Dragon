@@ -1,7 +1,0 @@
-# modprobe.d configuration file for VBOXDRV
-
-
-# Configurable module parameters
-# ------------------------------
-# force_async_tsc:	force the asynchronous TSC mode (int)
-

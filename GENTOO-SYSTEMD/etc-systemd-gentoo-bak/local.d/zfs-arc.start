@@ -1,4 +1,0 @@
-#!/bin/bash
-echo 536870912 >> /sys/module/zfs/parameters/zfs_arc_max
-/usr/local/bin/cleanram
-# echo 0 >> /sys/module/zfs/parameters/zfs_arc_max

@@ -1,4 +1,0 @@
-KERNEL=="zram0", ATTR{disksize}="1024M" RUN="/sbin/mkswap /dev/zram0", TAG+="systemd"
-KERNEL=="zram1", ATTR{disksize}="1024M" RUN="/sbin/mkswap /dev/zram1", TAG+="systemd"
-KERNEL=="zram2", ATTR{disksize}="1024M" RUN="/sbin/mkswap /dev/zram2", TAG+="systemd"
-KERNEL=="zram3", ATTR{disksize}="1024M" RUN="/sbin/mkswap /dev/zram3", TAG+="systemd"

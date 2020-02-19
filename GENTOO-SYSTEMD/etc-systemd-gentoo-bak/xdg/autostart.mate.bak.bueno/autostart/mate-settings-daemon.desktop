@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=MATE Settings Daemon
-Exec=/usr/libexec/mate-settings-daemon
-OnlyShowIn=MATE;
-X-MATE-Autostart-Phase=Initialization
-X-MATE-Autostart-Notify=true
-X-MATE-AutoRestart=true
-NoDisplay=true

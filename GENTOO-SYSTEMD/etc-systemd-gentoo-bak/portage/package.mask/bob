@@ -1,6 +1,0 @@
-=www-client/firefox-66.0.5::bobwya
-#=app-emulation/wine-staging-4.9_p1:4.9_p1::bobwya
-#=app-emulation/wine-staging-4.9:4.9::bobwya
-#=app-eselect/eselect-wine-1.5.5
-=www-client/firefox-67.0::bobwya
-dev-util/spirv-headers::bobwya

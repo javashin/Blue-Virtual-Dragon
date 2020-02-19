@@ -1,7 +1,0 @@
-CFLAGS="-O3 -march=native -falign-functions=32 -flimit-function-alignment -fgraphite-identity -floop-nest-optimize -fno-semantic-interposition -fipa-pta -fno-math-errno -fno-trapping-math -fdevirtualize-at-ltrans -fno-stack-protector -pipe"
-CXXFLAGS="${CFLAGS}"
-FCFLAGS="${CFLAGS}"
-FFLAGS="${CFLAGS}"
-CPPFLAGS="${CFLAGS}"
-LDFLAGS="-Wl,-O2 -Wl,--as-needed,-z,now -Wl,--hash-style=gnu"
-#-fno-strict-aliasing

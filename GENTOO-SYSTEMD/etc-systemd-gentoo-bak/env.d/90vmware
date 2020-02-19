@@ -1,4 +1,0 @@
-PATH='/opt/vmware/bin'
-ROOTPATH='/opt/vmware/bin'
-CONFIG_PROTECT_MASK='/etc/vmware-installer'
-VMWARE_USE_SHIPPED_LIBS=1

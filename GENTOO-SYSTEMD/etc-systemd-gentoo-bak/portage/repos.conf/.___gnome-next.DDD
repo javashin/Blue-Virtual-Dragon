@@ -1,7 +1,0 @@
-[gnome-next]
-location = /usr/local/gnome-next
-sync-type = git
-sync-uri = https://github.com/Heather/gentoo-gnome.git
-priority = 100
-auto-sync = yes
-

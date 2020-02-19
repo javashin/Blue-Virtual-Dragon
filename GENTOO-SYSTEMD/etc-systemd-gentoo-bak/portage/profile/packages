@@ -1,7 +1,0 @@
-#-*sys-apps/openrc
-
-#-*net-misc/netifrc
-
-#-*virtual/service-manager
-
-#=dev-lang/perl-5.28.1
